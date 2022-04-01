@@ -1,17 +1,27 @@
 console.log('hello')
  
 document.querySelector('#generate').addEventListener('click',async()=>{
-    let res=await fetch(`https://instagram-data1.p.rapidapi.com/comments?post=https://www.instagram.com/p/CbzeZiKoTfx`, {
+    let res=await fetch(`https://instagram-data1.p.rapidapi.com/comments?post=${document.querySelector('#input').value}`, {
         method: 'GET',
         headers: {
             'X-RapidAPI-Host': 'instagram-data1.p.rapidapi.com',
 		'X-RapidAPI-Key': '28614c91d5msh4620892be3705bbp16a7b6jsn036ee88955d1'
         }
     })
-	try {
+    try {
         let res2= await res.json();
         let res3=res2.collector;
         const randomIndex = Math.floor(Math.random() * res3.length);
+        let z=countString(res3[randomIndex].text, '#');
+        if(z>=document.querySelector('#tag').value){
+           console.log('success');
+        }
+        else{
+            alert('num of tags in non appropriate');
+            location.reload();
+        }
+        document.querySelector('#result').innerHTML=res3[randomIndex].owner.username;
+        document.querySelector('#result3').innerHTML=res3[randomIndex].text;
         document.querySelector('img').classList.add('remove');
         document.querySelector('h4').classList.add('remove');
         document.querySelector('h3').classList.add('remove');
@@ -35,8 +45,8 @@ document.querySelector('#generate').addEventListener('click',async()=>{
          },1000)
         //wait until time finished
         setTimeout(()=>{
-        document.querySelector('#result').innerHTML=res3[randomIndex].owner.username;
-        document.querySelector('#result3').innerHTML=res3[randomIndex].text;
+        //document.querySelector('#result').innerHTML='mahmoud';
+        //document.querySelector('#result3').innerHTML='i am the winner';
         document.querySelector('#result1').style.display='flex';
         document.querySelector('#result2').style.display='flex';
         document.querySelector('img').classList.add('remove');
@@ -102,4 +112,18 @@ document.querySelector('.left2').addEventListener('click',()=>{
 })
 
 //////////////////////////////////////
+//check num of tags/////////////////
+//////////////////////////////////
+function countString(str, letter) {
+    let count = 0;
 
+    // looping through the items
+    for (let i = 0; i < str.length; i++) {
+
+        // check if the character is at that position
+        if (str.charAt(i) == letter) {
+            count += 1;
+        }
+    }
+    return count;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Giveaway</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Lato&family=Montserrat:wght@300&family=Open+Sans:ital,wght@0,300;0,500;1,400&family=Roboto:wght@300;400&family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <img src="instagram.png" alt="" style="margin-left:50%;transform:translateX(-50%);width:60px">
+        <h1 style="text-align:center">Free Instagram Giveaway Picker</h1>
+        <h3 style="text-align:center">The Most Professional and Fair Instagram Giveaways in Seconds</h3>
+        <input type="text" id="input" placeholder="Past the link of your instagram here">
+        <div class="zoom-in-zoom-out"><h1 style="text-align:center;color:#e0003b;cursor:pointer;width:fit-content;margin:0 auto 0 auto" class="click">Your Rules</h1>
+        <h4 style="margin: -10px auto 0 auto;color:gray;text-align:center;cursor:pointer" class="click">Click here for your contrast settings</h4>
+        </div>
+        <div id="rules" style="display:none;">
+            <input type="text" placeholder="Name Of Your Contest" style="text-align:center;width:60%;margin-top:40px;outline: #e7eaf3;">
+            <div>Number Of Winners</div>
+            <div><span class="left1">-</span><input type="number" class="x" id="num"><span class="right1">+</span></div>
+            <div>Minimum Tags</div>
+            <div><span class="left2">-</span><input type="number" class="x" id="tag"><span class="right2">+</span></div>
+            <div>Set Duration Of Aniamtion</div>
+            <input type="number" class="x" id="time">
+        </div>
+        <div id="timerPage" style="position:absolute;top:0;background-size: cover;display:none;width:100%;height:100vh;padding:25px;background-image:url(celebration.jpg);color:white ;justify-content: center;align-items: center;font-size: 15rem;">
+            <div id="timer"></div>
+        </div>
+        <div id="generate">Genearte</div>
+        <div id="result1"><h1>Winner</h1><div id="result"></div></div>
+        <div id="result2"><h1>Comment</h1><div id="result3"></div></div>
+    </body>
+    <script src="app.js"></script>
+</html>
